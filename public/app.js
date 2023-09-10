@@ -1,7 +1,7 @@
 let header=document.getElementById('header');
 let reset=document.getElementById('reset');
 let boxes=Array.from(document.getElementsByClassName('btn'));
-let result=document.getElementsByClassName('result');
+let who=document.getElementById('who');
 
 const O_TEXT="O"
 const X_TEXT="X"
@@ -20,13 +20,15 @@ function boxClicked(e){
         spaces[id]=currentPlayer
         e.target.innerText=currentPlayer
     
+        currentPlayer=currentPlayer==X_TEXT?O_TEXT:X_TEXT
+        who.innerHTML=`Player ${currentPlayer} turn`
     if(playerHasWon()!=false)
     {
 //     2. Display a winning message in the 'result' element when a player wins.
-        header.innerHTML=`${currentPlayer} has won!`
+        who.innerHTML=`Player ${currentPlayer} Won🎉`
     }
     
-    currentPlayer=currentPlayer==X_TEXT?O_TEXT:X_TEXT
+    
     }
 }
 
@@ -66,6 +68,7 @@ function resetGame(){
         btn.innerText=''
     })
     currentPlayer=X_TEXT
+    who.innerHTML=''
     // Your code to re-enable buttons
     boxes.disabled=false;
 }
