@@ -2,11 +2,11 @@ let header=document.getElementById('header');
 let reset=document.getElementById('reset');
 let boxes=Array.from(document.getElementsByClassName('btn'));
 let who=document.getElementById('who');
-const b0=document.getElementById('0');
 
 const O_TEXT="O"
 const X_TEXT="X"
 let currentPlayer=X_TEXT
+let nextPlayer=O_TEXT
 who.innerHTML=`Player X turn`
 let spaces=Array(9).fill(null)
 
@@ -14,7 +14,7 @@ const startGame=()=>{
     boxes.forEach(btn=>btn.addEventListener('click',boxClicked))
 }
 
-// Function to handle player moves
+//  Function to handle player moves
 function boxClicked(e){
     const id=e.target.id
 
@@ -24,17 +24,18 @@ function boxClicked(e){
         e.target.innerText=currentPlayer
     
         currentPlayer=currentPlayer==X_TEXT?O_TEXT:X_TEXT
+        nextPlayer=nextPlayer==O_TEXT?X_TEXT:O_TEXT
         who.innerHTML=`Player ${currentPlayer} turn`
         
         if(playerHasWon()!=false)
         {
 //      2. Display a winning message in the 'result' element when a player wins.
-            if(currentPlayer=X_TEXT)
-                who.innerHTML=`Player X Won🎉`
-            else if(currentPlayer=O_TEXT)   
-                who.innerHTML=`Player O Won🎉`
+            // if(currentPlayer=X_TEXT)
+            //     who.innerHTML=`Player X Won🎉`
+            // else if(currentPlayer=O_TEXT)   
+            //     who.innerHTML=`Player O Won🎉`
 
-            // who.innerHTML=`Player ${currentPlayer} Won🎉`
+            who.innerHTML=`Player ${nextPlayer} Won🎉`
             
 //      3. Disable all buttons after a win.
             currentPlayer=''
@@ -62,6 +63,7 @@ function playerHasWon(){
         let[a,b,c]=cond
         if(spaces[a] && (spaces[a]==spaces[b] && spaces[a]==spaces[c])){
             return [a,b,c];
+            nextPlayer=currentPlayer
         }
     }
     return false;
