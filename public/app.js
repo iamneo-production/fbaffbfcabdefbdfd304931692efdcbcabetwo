@@ -45,6 +45,7 @@ function playerHasWon(){
 
         if(spaces[a] && (spaces[a]==spaces[b] && spaces[a]==spaces[c])){
             return [a,b,c];
+            boxes.disabled=true;
         }
     }
     return false;
