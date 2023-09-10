@@ -42,11 +42,15 @@ h1{
 }
 
 .result-container{
-  height:65;
+  height:65px;
   width:200px;
-  background-color:white;
-  opacity: 0.1;
+  position: center;
+  background-color: white;
   text-align: center;
+  display:flex;
+  justify-content:center;
+  align-items:center; 
+  font-size: 25px;
 }
 
 .reset{
