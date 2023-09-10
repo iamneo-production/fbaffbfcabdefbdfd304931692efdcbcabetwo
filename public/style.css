@@ -42,5 +42,13 @@ h1{
 }
 
 button{
+  padding:10px,20px;
+  border-radius: 10px;
+  text-align: center;
   
+}
+
+button:hover{
+  cursor:pointer;
+  transform:translateY(-1px);
 }
