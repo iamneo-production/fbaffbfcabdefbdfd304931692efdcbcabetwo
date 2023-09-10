@@ -12,7 +12,7 @@ const startGame=()=>{
 }
 
 function boxClicked(e){
-    const id=e.tartget.id
+    const id=e.target.id
 
     if(!spaces[id]){
         spaces[id]=currentPlayer
@@ -43,6 +43,17 @@ function playerHasWon(){
     }
     return false;
 }
+
+// reset.addEventListener('click',reset)
+
+// function reset(){
+//     spaces.fill(null)
+//     boxes.forEach(btn=>{
+//         btn.innerText=''
+//     })
+
+//     currentPlayer=X_TEXT
+// }
 
 startGame();
 // // Function to handle player moves
