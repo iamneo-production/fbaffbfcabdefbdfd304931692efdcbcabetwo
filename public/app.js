@@ -1,7 +1,7 @@
 let header=document.getElementById('header');
 let reset=document.getElementById('reset');
 let boxes=Array.from(document.getElementsByClassName('btn'));
-let result=document.getElementsByClassName('result-container');
+let result=document.getElementsByClassName('result');
 
 const O_TEXT="O"
 const X_TEXT="X"
@@ -19,7 +19,10 @@ function boxClicked(e){
         spaces[id]=currentPlayer
         e.target.innerText=currentPlayer
     
-    if(playerHasWon())
+    if(playerHasWon()!=false)
+    {
+        result.innerText=`${currentPlayer} has won!`
+    }
     
     currentPlayer=currentPlayer==X_TEXT?O_TEXT:X_TEXT
     }
