@@ -1,8 +1,25 @@
-// Initial game state
-let cells = ['', '', '', '', '', '', '', '', ''];
-let currentPlayer = 'X';
-let result = document.querySelector('.result');
-let btns = document.querySelectorAll('.btn');
+let header=document.getElementById('header');
+let reset=document.getElementById('reset');
+let boxes=Array.from(document.getElementsByClassName('btn'));
+
+const O_TEXT="O"
+const X_TEXT="X"
+
+let currentPlayer=X_TEXT
+let spaces=Array(9).fill(null)
+
+const startGame=()=>{
+    boxes.forEach
+}
+
+
+
+
+
+
+
+
+
 let conditions = [
     [0, 1, 2],
     [3, 4, 5],
