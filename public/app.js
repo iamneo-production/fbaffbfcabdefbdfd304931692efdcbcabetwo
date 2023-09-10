@@ -14,8 +14,12 @@ const startGame=()=>{
 function boxClicked(e){
     const id=e.tartget.id
 
-    if( )
+    if(!spaces[id]){
+        spaces[id]=currentPlayer
+        e.target.innerText=currentPlayer
+    
     currentPlayer=currentPlayer==X_TEXT?O_TEXT:X_TEXT
+    }
 }
 
 let conditions = [
@@ -29,6 +33,18 @@ let conditions = [
     [2, 4, 6]
 ];
 
+function playerHasWon(){
+    for(const cond of conditions){
+        let[a,b,c]=cond
+
+        if(spaces[a] && (spaces[a]==spaces[b] && spaces[a]==spaces[c])){
+            return [a,b,c];
+        }
+    }
+    return false;
+}
+
+startGame();
 // // Function to handle player moves
 // const ticTacToe = (element, index) => {
 //     // Your game logic here
