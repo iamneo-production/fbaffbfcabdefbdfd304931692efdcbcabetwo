@@ -2,6 +2,7 @@ let header=document.getElementById('header');
 let reset=document.getElementById('reset');
 let boxes=Array.from(document.getElementsByClassName('btn'));
 let who=document.getElementById('who');
+let b0=document.getElementById('0');
 
 const O_TEXT="O"
 const X_TEXT="X"
@@ -16,19 +17,22 @@ const startGame=()=>{
 function boxClicked(e){
     const id=e.target.id
 
-    if(!spaces[id]){
+    if(!spaces[id])
+    {
         spaces[id]=currentPlayer
         e.target.innerText=currentPlayer
     
         currentPlayer=currentPlayer==X_TEXT?O_TEXT:X_TEXT
         who.innerHTML=`Player ${currentPlayer} turn`
-    if(playerHasWon()!=false)
-    {
+
+        if(playerHasWon()!=false)
+        {
 //     2. Display a winning message in the 'result' element when a player wins.
-        who.innerHTML=`Player ${currentPlayer} Won🎉`
-    }
-    
-    
+            if(currentPlayer=X_TEXT)
+                who.innerHTML=`Player X Won🎉`
+            else    
+                who.innerHTML=`Player O Won🎉`
+        }
     }
 }
 
