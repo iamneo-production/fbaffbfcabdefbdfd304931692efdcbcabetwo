@@ -23,23 +23,23 @@ function boxClicked(e){
         spaces[id]=currentPlayer
         e.target.innerText=currentPlayer
     
-
+        currentPlayer=currentPlayer==X_TEXT?O_TEXT:X_TEXT
+        who.innerHTML=`Player ${currentPlayer} turn`
+        
         if(playerHasWon()!=false)
         {
 //      2. Display a winning message in the 'result' element when a player wins.
-            // if(currentPlayer=X_TEXT)
-            //     who.innerHTML=`Player X Won🎉`
-            // else if(currentPlayer=O_TEXT)   
-            //     who.innerHTML=`Player O Won🎉`
+            if(currentPlayer=X_TEXT)
+                who.innerHTML=`Player X Won🎉`
+            else if(currentPlayer=O_TEXT)   
+                who.innerHTML=`Player O Won🎉`
 
-            who.innerHTML=`Player ${currentPlayer} Won🎉`
+            // who.innerHTML=`Player ${currentPlayer} Won🎉`
             
 //      3. Disable all buttons after a win.
             currentPlayer=''
         }
 
-        currentPlayer=currentPlayer==X_TEXT?O_TEXT:X_TEXT
-        who.innerHTML=`Player ${currentPlayer} turn`
     }
 }
 
@@ -70,13 +70,14 @@ function playerHasWon(){
 reset.addEventListener('click',resetGame)
 
 //Function to reset the game
-function resetGame(){
-    // Your code to reset the game state
+function resetGame()
+{
+//  Your code to reset the game state
     spaces.fill(null)
     boxes.forEach(btn=>{
         btn.innerText=''
     })
-// Your code to re-enable buttons
+//  Your code to re-enable buttons
     currentPlayer=X_TEXT
     who.innerHTML=''
 }
