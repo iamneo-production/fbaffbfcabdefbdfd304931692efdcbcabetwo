@@ -14,7 +14,7 @@ h1{
   text-align:center;
   color:white;
   font-size:50px;
-  text-shadow: 2px,2px whitesmoke;
+  text-shadow: 2px 2px grey;
 }
 
 .container{
@@ -40,7 +40,6 @@ h1{
   font-size: 50px;
   font-weight: 500;
   border-radius: 5px;
-  color:black;
   background-color: white;
   opacity:0.7;
   box-shadow: 5px 10px;
@@ -51,6 +50,7 @@ h1{
   height:65px;
   width:200px;
   background-color:white;
+  opacity:0.7;
   display:flex;
   align-items:center; 
   justify-content:center;

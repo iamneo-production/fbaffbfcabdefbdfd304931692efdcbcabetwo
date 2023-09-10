@@ -1,6 +1,7 @@
 let header=document.getElementById('header');
 let reset=document.getElementById('reset');
 let boxes=Array.from(document.getElementsByClassName('btn'));
+let result=document.getElementsByClassName('result-container');
 
 const O_TEXT="O"
 const X_TEXT="X"
@@ -17,6 +18,8 @@ function boxClicked(e){
     if(!spaces[id]){
         spaces[id]=currentPlayer
         e.target.innerText=currentPlayer
+    
+    if(playerHasWon())
     
     currentPlayer=currentPlayer==X_TEXT?O_TEXT:X_TEXT
     }
@@ -44,16 +47,15 @@ function playerHasWon(){
     return false;
 }
 
-// reset.addEventListener('click',reset)
+reset.addEventListener('click',resetGame)
 
-// function reset(){
-//     spaces.fill(null)
-//     boxes.forEach(btn=>{
-//         btn.innerText=''
-//     })
-
-//     currentPlayer=X_TEXT
-// }
+function resetGame(){
+    spaces.fill(null)
+    boxes.forEach(btn=>{
+        btn.innerText=''
+    })
+    currentPlayer=X_TEXT
+}
 
 startGame();
 // // Function to handle player moves
