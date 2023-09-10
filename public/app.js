@@ -2,7 +2,7 @@ let header=document.getElementById('header');
 let reset=document.getElementById('reset');
 let boxes=Array.from(document.getElementsByClassName('btn'));
 let who=document.getElementById('who');
-let b0=document.getElementById('0');
+const b0=document.getElementById('0');
 
 const O_TEXT="O"
 const X_TEXT="X"
@@ -32,6 +32,7 @@ function boxClicked(e){
                 who.innerHTML=`Player X Won🎉`
             else    
                 who.innerHTML=`Player O Won🎉`
+
         }
     }
 }
@@ -49,14 +50,14 @@ let conditions = [
 
 // 1. Implement the logic to check for winning conditions using the 'conditions' array.
 function playerHasWon(){
-    for(const cond of conditions){
+    for(const cond of conditions)
+    {
 // Your code to update the game state and check for a win
         let[a,b,c]=cond
-
         if(spaces[a] && (spaces[a]==spaces[b] && spaces[a]==spaces[c])){
             return [a,b,c];
         //3. Disable all buttons after a win.
-            boxes.disabled=true;
+            currentPlayer=''
         }
     }
     return false;
@@ -74,7 +75,7 @@ function resetGame(){
     currentPlayer=X_TEXT
     who.innerHTML=''
     // Your code to re-enable buttons
-    boxes.disabled=false;
+    // b0.disabled=false;
 }
 
 startGame();
